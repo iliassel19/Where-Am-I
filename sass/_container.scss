@@ -1,0 +1,100 @@
+.container {
+  min-height: 100vh;
+  background-color: var(--color-very-light-g);
+  padding: 4.8rem 8rem;
+  transition: all 0.3s;
+  @include respond(sm-tab-port) {
+    padding: 3.2rem 4.8rem;
+  }
+  @include respond(phone) {
+    padding: 2.4rem 3.2rem;
+  }
+
+  &.darkmode {
+    background-color: var(--color-very-dark-b);
+  }
+
+  &__countries {
+    margin-top: 4.8rem;
+    display: grid;
+    grid-template-columns: repeat(4, 24.5rem);
+    justify-content: space-between;
+    row-gap: 4.8rem;
+
+    @include respond(sm-tab-land) {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 6.4rem;
+    }
+    @include respond(tab-port) {
+      column-gap: 5.2rem;
+    }
+    @include respond(sm-tab-port) {
+      column-gap: 3.2rem;
+    }
+
+    @include respond(phone) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 9.8rem;
+    }
+    @include respond(sm-phone) {
+      justify-content: center;
+      grid-template-columns: 60%;
+    }
+
+    &-details {
+      @include respond(sm-phone) {
+        grid-template-columns: 100%;
+      }
+    }
+
+    &-loader {
+      grid-column: 1/-1;
+      justify-self: center;
+      width: 50px;
+      height: 50px;
+      border: 4px solid transparent;
+      border-radius: 50%;
+      border-top: 4px solid var(--color-dark-b);
+      animation: rotate 1.5s linear infinite;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        border-radius: 50%;
+        box-sizing: border-box;
+        border: 4px solid transparent;
+      }
+      &::after {
+        inset: 0;
+        border-bottom: 4px solid var(--color-dark-b);
+        animation: rotate 0.5s linear infinite reverse;
+        .darkmode & {
+          border-bottom: 4px solid var(--color-white);
+        }
+      }
+
+      &::before {
+        inset: 4px;
+        border-left: 4px solid var(--color-dark-b);
+        animation: rotate 1.5s linear infinite;
+        .darkmode & {
+          border-left: 4px solid var(--color-white);
+        }
+      }
+
+      &.darkmode {
+        border-top: 4px solid var(--color-white);
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,111 @@
+.country__details {
+  &-box {
+    grid-column: 1/-1;
+    align-self: flex-start;
+    grid-row: 1/-1;
+    display: flex;
+    align-items: center;
+    gap: 5%;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+      gap: 4rem;
+    }
+  }
+
+  &-img-box {
+    flex: 0 0 45%;
+    @include respond(tab-port) {
+      width: 70%;
+    }
+  }
+
+  &-flag {
+    height: 100%;
+    width: 100%;
+  }
+
+  &-text-box {
+    flex: 0 0 50%;
+    @include respond(tab-port) {
+      width: 80%;
+    }
+
+    &.darkmode {
+      color: var(--color-white);
+    }
+  }
+  &-name {
+    font-size: 2.4rem;
+    font-weight: 800;
+
+    margin-bottom: 2.4rem;
+    color: inherit;
+
+    @include respond(tab-port) {
+      text-align: center;
+    }
+  }
+
+  &-lists {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    color: inherit;
+
+    @include respond(sm-phone) {
+      flex-direction: column;
+      gap: 3.2rem;
+    }
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: inherit;
+  }
+
+  &-info {
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: inherit;
+
+    & span {
+      font-weight: 300;
+      color: inherit;
+    }
+  }
+
+  &-borders {
+    margin-top: 6.4rem;
+    color: inherit;
+    &_list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.4rem;
+      color: inherit;
+
+      @include respond(phone) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @include respond(phone) {
+      margin-top: 4.8rem;
+    }
+  }
+
+  &-border {
+    font-size: 1.4rem;
+    background-color: var(--color-white);
+    box-shadow: -0.2rem 0.2rem 0rem #0000001a;
+    padding: 0.6rem 2rem;
+    color: inherit;
+
+    &.darkmode {
+      background-color: var(--color-dark-b);
+    }
+  }
+}
