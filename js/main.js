@@ -1,6 +1,6 @@
-const { data } = require("browserslist");
-const { region } = require("caniuse-lite");
-const { async } = require("regenerator-runtime");
+// const { data } = require("browserslist");
+// const { region } = require("caniuse-lite");
+// const { async } = require("regenerator-runtime");
 
 const container = document.querySelector(".container");
 const containerCountries = document.querySelector(".container__countries");
