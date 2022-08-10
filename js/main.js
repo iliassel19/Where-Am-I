@@ -65,6 +65,8 @@ class Country {
     });
 
     backBtn.addEventListener("click", this.backToMainHandler.bind(this));
+
+    searchInput.addEventListener("input", this.inputHandler.bind(this));
   }
 
   // HELPER FUNCTIONS
@@ -421,6 +423,17 @@ class Country {
       .forEach((loader) => {
         this.addDisplayNone(loader);
       });
+  }
+
+  inputHandler() {
+    if (searchInput.value === "") this.fetchData("all");
+    containerCountries.innerHTML = "";
+    this._data.forEach((data) => {
+      if (data.name.common.toLowerCase().startsWith(searchInput.value)) {
+        this.createCountryMarkup(data);
+        containerCountries.insertAdjacentHTML("beforeend", this._markup);
+      }
+    });
   }
 }
 
